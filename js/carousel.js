@@ -1,6 +1,8 @@
 /**
- * Simple and Reliable Carousel
+ * Enhanced Carousel functionality with improved tab visibility handling
+ * Replace or update the carousel.js file with these improvements
  */
+
 document.addEventListener('DOMContentLoaded', function() {
   const carousels = document.querySelectorAll('.carousel');
   
@@ -13,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSlide = 0;
     let isAnimating = false;
     let autoplayInterval = null;
+    let isPaused = false;
     const totalSlides = slides.length;
     
     // Hide all slides except the first one
@@ -94,6 +97,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
       
+      // Make sure navigation is visible during transitions
+      navigationContainer.style.opacity = '1';
+      indicatorsContainer.style.opacity = '1';
+      
       // Fade out current slide
       slides[currentSlide].style.opacity = '0';
       
@@ -124,10 +131,42 @@ document.addEventListener('DOMContentLoaded', function() {
       restartAutoplay();
     }
     
+    // Handle page visibility changes
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        // Pause when tab is not visible
+        pauseAutoplay();
+        isPaused = true;
+      } else if (document.visibilityState === 'visible') {
+        // Resume when tab becomes visible again
+        if (isPaused) {
+          startAutoplay();
+          isPaused = false;
+        }
+        
+        // Ensure UI elements are visible
+        navigationContainer.style.opacity = '1';
+        indicatorsContainer.style.opacity = '1';
+        
+        // Schedule hiding them after a delay if mouse is not over carousel
+        if (!isHovered) {
+          setTimeout(() => {
+            if (!isHovered && document.visibilityState === 'visible') {
+              navigationContainer.style.opacity = '0.3';
+              indicatorsContainer.style.opacity = '0.3';
+            }
+          }, 3000);
+        }
+      }
+    });
+    
     // Set up autoplay
     function startAutoplay() {
+      clearInterval(autoplayInterval);
       autoplayInterval = setInterval(() => {
-        goToSlide((currentSlide + 1) % totalSlides);
+        if (!isPaused && document.visibilityState === 'visible') {
+          goToSlide((currentSlide + 1) % totalSlides);
+        }
       }, 5000);
     }
     
@@ -140,9 +179,25 @@ document.addEventListener('DOMContentLoaded', function() {
       startAutoplay();
     }
     
-    // Pause on hover
-    carousel.addEventListener('mouseenter', pauseAutoplay);
-    carousel.addEventListener('mouseleave', startAutoplay);
+    // Track hover state
+    let isHovered = false;
+    
+    // Pause on hover with UI enhancement
+    carousel.addEventListener('mouseenter', () => {
+      isHovered = true;
+      pauseAutoplay();
+      // Make sure navigation is fully visible on hover
+      navigationContainer.style.opacity = '1';
+      indicatorsContainer.style.opacity = '1';
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+      isHovered = false;
+      startAutoplay();
+      // Fade navigation slightly when not hovering
+      navigationContainer.style.opacity = '0.3';
+      indicatorsContainer.style.opacity = '0.3';
+    });
     
     // Start autoplay
     startAutoplay();
@@ -171,5 +226,13 @@ document.addEventListener('DOMContentLoaded', function() {
       
       startAutoplay();
     }, { passive: true });
+    
+    // Initial state - slightly faded navigation when not hovering
+    setTimeout(() => {
+      if (!isHovered) {
+        navigationContainer.style.opacity = '0.3';
+        indicatorsContainer.style.opacity = '0.3';
+      }
+    }, 3000);
   });
 });

@@ -552,3 +552,34 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
   });
+
+
+  // Mobile menu functionality
+function initializeMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (menuToggle && navMenu) {
+      menuToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+      });
+      
+      // Close menu when clicking nav links
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            navMenu.classList.remove('active');
+            document.body.classList.remove('menu-open');
+          }
+        });
+      });
+    }
+  }
+  
+  // Call this function when DOM is loaded
+  document.addEventListener('DOMContentLoaded', function() {
+    initializeMobileMenu();
+    // ... other initializations
+  });
