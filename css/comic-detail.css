@@ -1,0 +1,824 @@
+/* ==============================
+   Comic Detail Page Styles
+   ============================== */
+
+   .comic-detail {
+    padding: var(--spacing-xl) 0;
+  }
+  
+  .comic-detail-header {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .comic-detail-cover {
+    flex-shrink: 0;
+    width: 300px;
+    box-shadow: var(--shadow-md);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+  }
+  
+  .comic-detail-cover img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+  }
+  
+  .comic-detail-info {
+    flex: 1;
+  }
+  
+  .comic-detail-title {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .comic-detail-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    color: var(--text-secondary);
+  }
+  
+  .comic-detail-meta span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .comic-detail-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .comic-detail-genre {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    background-color: rgba(98, 0, 234, 0.1);
+    color: var(--primary);
+    font-size: 0.9rem;
+  }
+  
+  .comic-detail-status {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .badge {
+    display: inline-block;
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .badge.ongoing {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  .badge.completed {
+    background-color: #2196f3;
+    color: white;
+  }
+  
+  .badge.chapters {
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+  }
+  
+  .comic-description {
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+  }
+  
+  .comic-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+  
+  .btn-favorite {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .btn-favorite svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .btn-favorite.active {
+    background-color: #ff4757;
+    border-color: #ff4757;
+    color: white;
+  }
+  
+  .btn-favorite.active svg {
+    fill: white;
+    stroke: white;
+  }
+  
+  /* Chapter List Styles */
+  .chapter-list {
+    margin-top: var(--spacing-lg);
+  }
+  
+  .chapters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .chapter-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
+    margin-bottom: var(--spacing-sm);
+    transition: all var(--transition-fast);
+  }
+  
+  .chapter-item:hover {
+    transform: translateX(5px);
+    background-color: rgba(98, 0, 234, 0.1);
+  }
+  
+  .chapter-thumb {
+    width: 60px;
+    height: 80px;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    margin-right: var(--spacing-md);
+  }
+  
+  .chapter-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .chapter-info {
+    flex: 1;
+  }
+  
+  .chapter-title {
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .chapter-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .chapter-number {
+    margin-left: auto;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  
+  /* Reviews Section */
+  .reviews-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-xl);
+  }
+  
+  .rating-summary {
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+  }
+  
+  .rating-big {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .rating-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary);
+  }
+  
+  .rating-stars {
+    margin: var(--spacing-sm) 0;
+  }
+  
+  .star {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 2px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'%3E%3C/polygon%3E%3C/svg%3E");
+    background-size: contain;
+  }
+  
+  .star.filled {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFC107' stroke='%23FFC107' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'%3E%3C/polygon%3E%3C/svg%3E");
+  }
+  
+  .star.half-filled {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='0%25'%3E%3Cstop offset='50%25' style='stop-color:%23FFC107;stop-opacity:1' /%3E%3Cstop offset='50%25' style='stop-color:%23fff;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2' fill='url(%23grad)' stroke='%23FFC107' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+  
+  .rating-count {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .rating-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .rating-bar {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .rating-label {
+    width: 15px;
+    text-align: center;
+  }
+  
+  .rating-percent {
+    width: 40px;
+    text-align: right;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .add-review {
+    margin-top: var(--spacing-xl);
+  }
+  
+  .rating-input {
+    margin: var(--spacing-sm) 0;
+  }
+  
+  .star-input {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23aaa' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'%3E%3C/polygon%3E%3C/svg%3E");
+    background-size: contain;
+  }
+  
+  .star-input:hover, .star-input.active {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFC107' stroke='%23FFC107' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'%3E%3C/polygon%3E%3C/svg%3E");
+  }
+  
+  .reviews-list {
+    margin-top: var(--spacing-lg);
+  }
+  
+  .review-item {
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .reviewer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .reviewer-info h4 {
+    margin-bottom: 0;
+  }
+  
+  .rating-stars.small .star {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .review-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .review-content {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .review-actions {
+    display: flex;
+    gap: var(--spacing-md);
+  }
+  
+  .btn-like, .btn-reply {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+  }
+  
+  .btn-like svg, .btn-reply svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .btn-like:hover, .btn-reply:hover {
+    color: var(--primary);
+  }
+  
+  /* Author Profile */
+  .author-profile {
+    margin-top: var(--spacing-lg);
+  }
+  
+  .author-header {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .author-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .author-info {
+    flex: 1;
+  }
+  
+  .author-info h3 {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .author-stats {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .author-stats span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--text-secondary);
+  }
+  
+  .btn-follow {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .author-bio, .author-works {
+    margin-top: var(--spacing-xl);
+  }
+  
+  /* Comments Section */
+  .comments-section {
+    margin-top: var(--spacing-lg);
+  }
+  
+  .comment-form {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .comment-item {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .comment-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  
+  .comment-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .comment-content {
+    flex: 1;
+  }
+  
+  .comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  .comment-header h4 {
+    margin-bottom: 0;
+  }
+  
+  .comment-time {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+  
+  .comment-replies {
+    margin-top: var(--spacing-md);
+    margin-left: var(--spacing-xl);
+  }
+  
+  .comment-item.reply {
+    background-color: var(--bg-primary);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-md);
+  }
+  
+  /* Share Modal */
+  .share-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .share-option {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-md);
+    transition: transform var(--transition-fast);
+  }
+  
+  .share-option:hover {
+    transform: translateY(-3px);
+  }
+  
+  .share-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .share-icon.twitter {
+    background-color: #1da1f2;
+  }
+  
+  .share-icon.facebook {
+    background-color: #4267b2;
+  }
+  
+  .share-icon.whatsapp {
+    background-color: #25d366;
+  }
+  
+  .share-icon.telegram {
+    background-color: #0088cc;
+  }
+  
+  .share-link {
+    display: flex;
+    gap: var(--spacing-sm);
+  }
+  
+  .share-link input {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius-md);
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+  
+  .btn-copy {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .btn-copy svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .reviews-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .author-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .author-stats {
+      justify-content: center;
+    }
+  
+    .author-bio, .author-works {
+      text-align: center;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .comic-detail-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .comic-detail-meta, .comic-detail-genres, .comic-detail-status {
+      justify-content: center;
+    }
+  
+    .comic-actions {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  
+    .share-options {
+      grid-template-columns: 1fr;
+    }
+  
+    .share-link {
+      flex-direction: column;
+    }
+  
+    .chapter-thumb {
+      display: none;
+    }
+  }
+
+
+  /* Comment and Review Form Styling */
+
+/* Textarea and form styling */
+.comment-form,
+.add-review {
+  margin-bottom: var(--spacing-lg);
+}
+
+.comment-form textarea,
+.add-review textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: var(--border-radius-md);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 100px;
+  margin-bottom: var(--spacing-md);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.comment-form textarea:focus,
+.add-review textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(98, 0, 234, 0.2);
+  outline: none;
+}
+
+.dark-theme .comment-form textarea,
+.dark-theme .add-review textarea {
+  border-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--bg-secondary);
+}
+
+.dark-theme .comment-form textarea:focus,
+.dark-theme .add-review textarea:focus {
+  border-color: var(--primary-light);
+}
+
+/* Submit buttons */
+.comment-form button,
+.add-review button {
+  display: block;
+  margin-left: auto;
+}
+
+/* Reply form */
+.reply-form {
+  margin-top: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  display: none;
+}
+
+.reply-form.active {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.reply-form textarea {
+  width: 100%;
+  padding: var(--spacing-sm);
+  font-size: 0.9rem;
+  min-height: 80px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.reply-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-sm);
+}
+
+.btn-cancel {
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.btn-cancel:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Comment/review count badge */
+.comment-count,
+.review-count {
+  background-color: rgba(98, 0, 234, 0.1);
+  color: var(--primary);
+  padding: 2px var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+/* Character counter for comments */
+.character-counter {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  text-align: right;
+  margin-top: -10px;
+  margin-bottom: var(--spacing-sm);
+}
+
+.character-counter.limit-reached {
+  color: #f44336;
+}
+
+/* Comment not logged in message */
+.comment-login-prompt {
+  text-align: center;
+  padding: var(--spacing-lg);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.comment-login-prompt p {
+  margin-bottom: var(--spacing-md);
+  color: var(--text-secondary);
+}
+
+/* Animation for new comment */
+@keyframes newComment {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.comment-item.new {
+  animation: newComment 0.5s ease;
+}
+
+/* Enhanced scrolling for long comment threads */
+.comments-list {
+  max-height: 800px;
+  overflow-y: auto;
+  padding-right: var(--spacing-sm);
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) var(--bg-secondary);
+}
+
+.comments-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+  border-radius: 4px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+  border-radius: 4px;
+}
+
+/* Comment sorting options */
+.comment-sorting {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--spacing-md);
+  font-size: 0.9rem;
+}
+
+.comment-sorting select {
+  margin-left: var(--spacing-sm);
+  padding: 3px var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Empty comment state */
+.no-comments {
+  text-align: center;
+  padding: var(--spacing-xl);
+  color: var(--text-secondary);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-md);
+}
+
+.no-comments svg {
+  width: 50px;
+  height: 50px;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.5;
+}
+
+.no-comments p {
+  margin-bottom: var(--spacing-md);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .comment-form button,
+  .add-review button {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  .comment-item {
+    flex-direction: column;
+  }
+  
+  .comment-avatar {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .comment-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .comment-time {
+    margin-top: 2px;
+  }
+  
+  .comment-replies {
+    margin-left: var(--spacing-md);
+  }
+}
