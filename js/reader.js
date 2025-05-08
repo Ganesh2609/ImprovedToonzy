@@ -1,9 +1,13 @@
 /**
- * Comic Verse - Reader.js
- * Manga-style continuous vertical reader with enhanced reading experience
+ * Toonzy - Reader.js
+ * Comic reader functionality with PDF support
+ * Isolated from other JavaScript to prevent conflicts
  */
 
-class ComicReader {
+// Use IIFE to avoid global scope pollution
+(function() {
+  // ComicReader class to encapsulate all reader functionality
+  class ComicReader {
     constructor(options = {}) {
       // Default options
       this.options = {
@@ -30,6 +34,19 @@ class ComicReader {
       this.isMobile = window.innerWidth < 768;
       this.isUIHidden = false;
       this.userHasInteracted = false;
+      this.isInitialized = false;
+      
+      // Check if we're on a reader page before proceeding
+      if (!document.querySelector('.reader-page')) {
+        console.log('Not a reader page, skipping reader initialization');
+        return;
+      }
+      
+      // Only initialize once
+      if (this.isInitialized) {
+        console.log('Reader already initialized');
+        return;
+      }
       
       // UI Elements
       this.container = document.getElementById(this.options.containerId);
@@ -48,9 +65,15 @@ class ComicReader {
       this.zoomSlider = document.getElementById('zoom-range');
       this.touchHint = document.querySelector('.touch-hint');
       
+      // Check that required elements exist
+      if (!this.container) {
+        console.error('Reader container not found');
+        return;
+      }
+      
       // Initialize PDF.js
       if (typeof pdfjsLib === 'undefined') {
-        this.showError('PDF.js library not loaded. Please check your connection and reload the page.');
+        this.showError('PDF.js library not loaded. Please reload the page and try again.');
         return;
       }
       
@@ -59,6 +82,7 @@ class ComicReader {
       
       // Initialize the reader
       this.init();
+      this.isInitialized = true;
     }
     
     init() {
@@ -84,21 +108,22 @@ class ComicReader {
     }
     
     setupUI() {
-      // Initial UI state
-      if (this.currentPageEl) this.currentPageEl.textContent = this.currentPage;
+      // Initialize UI state
+      if (this.currentPageEl) {
+        this.currentPageEl.textContent = this.currentPage;
+      }
       
       // Show auto-hide UI on first interaction
       const autoHideUI = () => {
         if (!this.userHasInteracted) {
           this.userHasInteracted = true;
           this.scheduleUIHide();
-          document.removeEventListener('mousemove', autoHideUI);
-          document.removeEventListener('touchstart', autoHideUI);
         }
       };
       
-      document.addEventListener('mousemove', autoHideUI);
-      document.addEventListener('touchstart', autoHideUI);
+      // Add event listeners for UI interactions
+      document.addEventListener('mousemove', autoHideUI, { once: true });
+      document.addEventListener('touchstart', autoHideUI, { once: true });
       
       // Setup settings panel
       this.setupSettingsPanel();
@@ -107,7 +132,11 @@ class ComicReader {
     setupSettingsPanel() {
       if (!this.settingsBtn || !this.settingsPanel || !this.settingsOverlay) return;
       
-      // Open settings panel
+      // Open settings panel - clone and replace to remove previous listeners
+      const newSettingsBtn = this.settingsBtn.cloneNode(true);
+      this.settingsBtn.parentNode.replaceChild(newSettingsBtn, this.settingsBtn);
+      this.settingsBtn = newSettingsBtn;
+      
       this.settingsBtn.addEventListener('click', () => {
         this.settingsPanel.classList.add('active');
         this.settingsOverlay.classList.add('active');
@@ -117,7 +146,10 @@ class ComicReader {
       // Close settings panel
       const closeSettingsBtn = document.querySelector('.btn-close-settings');
       if (closeSettingsBtn) {
-        closeSettingsBtn.addEventListener('click', () => {
+        const newCloseBtn = closeSettingsBtn.cloneNode(true);
+        closeSettingsBtn.parentNode.replaceChild(newCloseBtn, closeSettingsBtn);
+        
+        newCloseBtn.addEventListener('click', () => {
           this.settingsPanel.classList.remove('active');
           this.settingsOverlay.classList.remove('active');
           this.scheduleUIHide();
@@ -137,6 +169,12 @@ class ComicReader {
         this.zoomSlider.addEventListener('input', () => {
           const zoom = parseInt(this.zoomSlider.value) / 100;
           this.adjustZoom(zoom);
+          
+          // Update zoom value display
+          const zoomValue = document.getElementById('zoom-value');
+          if (zoomValue) {
+            zoomValue.textContent = `${this.zoomSlider.value}%`;
+          }
         });
       }
       
@@ -155,11 +193,33 @@ class ComicReader {
           this.applyReadingMode(mode);
         });
       });
+      
+      // Reading direction buttons
+      const directionButtons = document.querySelectorAll('.settings-button[data-direction]');
+      directionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          directionButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+        });
+      });
+      
+      // Navigation buttons
+      const navigationButtons = document.querySelectorAll('.settings-button[data-navigation]');
+      navigationButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Remove active class from all buttons
+          navigationButtons.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          button.classList.add('active');
+        });
+      });
     }
     
     applyReadingMode(mode) {
-      const pageContainers = document.querySelectorAll('.comic-page');
-      
       switch(mode) {
         case 'light':
           document.body.classList.remove('dark-theme');
@@ -341,7 +401,9 @@ class ComicReader {
             
             // After some time, remove the preloader entirely
             setTimeout(() => {
-              preloader.remove();
+              if (preloader.parentNode === comicPage) {
+                preloader.remove();
+              }
             }, 300);
           };
           
@@ -354,6 +416,12 @@ class ComicReader {
     }
     
     setupIntersectionObserver() {
+      // Disconnect any existing observers
+      this.observers.forEach(observer => {
+        observer.disconnect();
+      });
+      this.observers = [];
+      
       // Create an intersection observer to track which page is currently in view
       const options = {
         root: null,
@@ -438,6 +506,10 @@ class ComicReader {
     setupEventListeners() {
       // Navigation buttons
       if (this.prevPageBtn) {
+        const newPrevBtn = this.prevPageBtn.cloneNode(true);
+        this.prevPageBtn.parentNode.replaceChild(newPrevBtn, this.prevPageBtn);
+        this.prevPageBtn = newPrevBtn;
+        
         this.prevPageBtn.addEventListener('click', () => {
           this.goToPage(this.currentPage - 1);
           this.cancelUIHide();
@@ -446,6 +518,10 @@ class ComicReader {
       }
       
       if (this.nextPageBtn) {
+        const newNextBtn = this.nextPageBtn.cloneNode(true);
+        this.nextPageBtn.parentNode.replaceChild(newNextBtn, this.nextPageBtn);
+        this.nextPageBtn = newNextBtn;
+        
         this.nextPageBtn.addEventListener('click', () => {
           this.goToPage(this.currentPage + 1);
           this.cancelUIHide();
@@ -455,6 +531,10 @@ class ComicReader {
       
       // Chapter navigation
       if (this.prevChapterBtn) {
+        const newPrevChapterBtn = this.prevChapterBtn.cloneNode(true);
+        this.prevChapterBtn.parentNode.replaceChild(newPrevChapterBtn, this.prevChapterBtn);
+        this.prevChapterBtn = newPrevChapterBtn;
+        
         this.prevChapterBtn.addEventListener('click', () => {
           // In a real implementation, this would navigate to the previous chapter
           // For demo, show alert
@@ -464,6 +544,10 @@ class ComicReader {
       }
       
       if (this.nextChapterBtn) {
+        const newNextChapterBtn = this.nextChapterBtn.cloneNode(true);
+        this.nextChapterBtn.parentNode.replaceChild(newNextChapterBtn, this.nextChapterBtn);
+        this.nextChapterBtn = newNextChapterBtn;
+        
         this.nextChapterBtn.addEventListener('click', () => {
           // In a real implementation, this would navigate to the next chapter
           // For demo, show alert
@@ -521,7 +605,10 @@ class ComicReader {
       // Close touch hint
       const closeHintBtn = document.querySelector('.btn-close-hint');
       if (closeHintBtn && this.touchHint) {
-        closeHintBtn.addEventListener('click', () => {
+        const newCloseHintBtn = closeHintBtn.cloneNode(true);
+        closeHintBtn.parentNode.replaceChild(newCloseHintBtn, closeHintBtn);
+        
+        newCloseHintBtn.addEventListener('click', () => {
           this.touchHint.classList.remove('active');
           localStorage.setItem('comic_verse_reader_hint_seen', 'true');
         });
@@ -600,7 +687,8 @@ class ComicReader {
     }
     
     hideUI() {
-      if (!this.isUIHidden && !this.settingsPanel.classList.contains('active')) {
+      // Don't hide UI if settings panel is open
+      if (!this.isUIHidden && this.settingsPanel && !this.settingsPanel.classList.contains('active')) {
         this.header.classList.add('hidden');
         this.footer.classList.add('hidden');
         this.isUIHidden = true;
@@ -664,32 +752,6 @@ class ComicReader {
       this.container.appendChild(error);
     }
   }
-  
-  // Initialize reader when DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    // Only initialize on reader page
-    if (document.querySelector('.reader-page')) {
-      // Get URL parameters (for page number)
-      const urlParams = new URLSearchParams(window.location.search);
-      const startPage = parseInt(urlParams.get('page')) || 1;
-      
-      // Get comic ID from URL (if present)
-      const comicId = urlParams.get('id') || '1';
-      
-      // Initialize comic reader
-      const reader = new ComicReader({
-        containerId: 'reader-container',
-        pdfUrl: `/assets/comics/${comicId}.pdf`, // In a real site, this would be a server path
-        startPage: startPage,
-        zoomFactor: 1.0
-      });
-      
-      // Add floating navigation buttons for mobile
-      if (window.innerWidth < 768) {
-        addMobileNavButtons();
-      }
-    }
-  });
   
   // Add floating navigation buttons for mobile devices
   function addMobileNavButtons() {
@@ -756,3 +818,30 @@ class ComicReader {
       topButton.style.display = 'none';
     }
   }
+
+  // Initialize reader when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    // Only initialize on reader page
+    if (document.querySelector('.reader-page')) {
+      // Get URL parameters (for page number)
+      const urlParams = new URLSearchParams(window.location.search);
+      const startPage = parseInt(urlParams.get('page')) || 1;
+      
+      // Get comic ID from URL (if present)
+      const comicId = urlParams.get('id') || '1';
+      
+      // Initialize comic reader
+      const reader = new ComicReader({
+        containerId: 'reader-container',
+        pdfUrl: `/assets/comics/${comicId}.pdf`, // In a real site, this would be a server path
+        startPage: startPage,
+        zoomFactor: 1.0
+      });
+      
+      // Add floating navigation buttons for mobile
+      if (window.innerWidth < 768) {
+        addMobileNavButtons();
+      }
+    }
+  });
+})();
