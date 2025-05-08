@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Genres - Comic Verse</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/icons/favicon.png" type="image/png">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/icons/logo.svg" alt="Comic Verse Logo">
+          <span>Comic Verse</span>
+        </a>
+        
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="genres.html" class="nav-link active">Genres</a>
+          <a href="daily.html" class="nav-link">Daily</a>
+          <a href="library.html" class="nav-link">Library</a>
+          <a href="creator-dashboard.html" class="nav-link">Create</a>
+        </nav>
+        
+        <div class="header-right">
+          <form class="search-box">
+            <input type="text" placeholder="Search comics..." aria-label="Search comics">
+            <button type="submit" aria-label="Submit search">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+          
+          <a href="profile.html" class="btn btn-icon" aria-label="Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+          
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Genres Hero Section -->
+  <section class="genres-hero">
+    <div class="container">
+      <div class="genres-hero-content">
+        <h1>Explore Comics by Genre</h1>
+        <p>Discover stories that match your mood from our extensive collection across different genres.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Genre Categories -->
+  <section class="section">
+    <div class="container">
+      <div class="genre-categories">
+        <h2 class="section-title">All Genres</h2>
+        
+        <div class="genre-grid">
+          <!-- Genre Card - Action -->
+          <a href="#action" class="genre-category-card" data-genre="action">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+              </svg>
+            </div>
+            <h3>Action</h3>
+            <span class="comic-count">286 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Adventure -->
+          <a href="#adventure" class="genre-category-card" data-genre="adventure">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+            </div>
+            <h3>Adventure</h3>
+            <span class="comic-count">215 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Comedy -->
+          <a href="#comedy" class="genre-category-card" data-genre="comedy">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M8 14s1.5 2 4 2 4-2 4-2"></path>
+                <line x1="9" y1="9" x2="9.01" y2="9"></line>
+                <line x1="15" y1="9" x2="15.01" y2="9"></line>
+              </svg>
+            </div>
+            <h3>Comedy</h3>
+            <span class="comic-count">205 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Drama -->
+          <a href="#drama" class="genre-category-card" data-genre="drama">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+              </svg>
+            </div>
+            <h3>Drama</h3>
+            <span class="comic-count">187 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Fantasy -->
+          <a href="#fantasy" class="genre-category-card" data-genre="fantasy">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </div>
+            <h3>Fantasy</h3>
+            <span class="comic-count">312 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Horror -->
+          <a href="#horror" class="genre-category-card" data-genre="horror">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5v14"></path>
+              </svg>
+            </div>
+            <h3>Horror</h3>
+            <span class="comic-count">158 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Mystery -->
+          <a href="#mystery" class="genre-category-card" data-genre="mystery">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <h3>Mystery</h3>
+            <span class="comic-count">143 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Romance -->
+          <a href="#romance" class="genre-category-card" data-genre="romance">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </div>
+            <h3>Romance</h3>
+            <span class="comic-count">354 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Sci-Fi -->
+          <a href="#scifi" class="genre-category-card" data-genre="scifi">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </div>
+            <h3>Sci-Fi</h3>
+            <span class="comic-count">177 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Slice of Life -->
+          <a href="#sliceoflife" class="genre-category-card" data-genre="sliceoflife">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="9" y1="21" x2="9" y2="9"></line>
+              </svg>
+            </div>
+            <h3>Slice of Life</h3>
+            <span class="comic-count">121 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Sports -->
+          <a href="#sports" class="genre-category-card" data-genre="sports">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"></polygon>
+              </svg>
+            </div>
+            <h3>Sports</h3>
+            <span class="comic-count">89 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Supernatural -->
+          <a href="#supernatural" class="genre-category-card" data-genre="supernatural">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M7 21h10"></path>
+                <path d="M12 21a9 9 0 0 0 9-9H3a9 9 0 0 0 9 9Z"></path>
+                <path d="M8 3v2"></path>
+                <path d="M16 3v2"></path>
+                <path d="M12 3v6"></path>
+              </svg>
+            </div>
+            <h3>Supernatural</h3>
+            <span class="comic-count">132 Comics</span>
+          </a>
+          
+          <!-- Genre Card - Thriller -->
+          <a href="#thriller" class="genre-category-card" data-genre="thriller">
+            <div class="genre-category-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+            </div>
+            <h3>Thriller</h3>
+            <span class="comic-count">98 Comics</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Genre Specific Content - Action -->
+  <section class="section genre-content active" id="action">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Action Comics</h2>
+        <div class="filter-bar">
+          <div class="filter-group">
+            <span class="filter-label">Status:</span>
+            <button class="filter-item active">All</button>
+            <button class="filter-item">Ongoing</button>
+            <button class="filter-item">Completed</button>
+          </div>
+          
+          <div class="filter-group">
+            <span class="filter-label">Sort By:</span>
+            <button class="filter-item active">Popularity</button>
+            <button class="filter-item">Latest</button>
+            <button class="filter-item">Rating</button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="comic-grid">
+        <!-- Action Comic 1 -->
+        <div class="comic-card">
+          <a href="comic-detail.html?id=1">
+            <div class="comic-cover">
+              <img src="assets/images/covers/1.jpg" alt="The Necromancer">
+            </div>
+            <div class="comic-info">
+              <span class="comic-genre">Action/Fantasy</span>
+              <h3 class="comic-title">The Necromancer</h3>
+              <div class="comic-meta">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  35.1K
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  175.8K
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <!-- Action Comic 2 -->
+        <div class="comic-card">
+          <a href="comic-detail.html?id=2">
+            <div class="comic-cover">
+              <img src="assets/images/covers/2.jpg" alt="Marvelous Hero of the Sword">
+            </div>
+            <div class="comic-info">
+              <span class="comic-genre">Action</span>
+              <h3 class="comic-title">Marvelous Hero of the Sword</h3>
+              <div class="comic-meta">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  28.5K
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  142.3K
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <!-- More Action Comics -->
+        <div class="comic-card">
+          <a href="comic-detail.html?id=33">
+            <div class="comic-cover">
+              <img src="assets/images/covers/33.jpg" alt="The Last Hero">
+            </div>
+            <div class="comic-info">
+              <span class="comic-genre">Action</span>
+              <h3 class="comic-title">The Last Hero</h3>
+              <div class="comic-meta">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  27.6K
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  142.5K
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="comic-card">
+          <a href="comic-detail.html?id=34">
+            <div class="comic-cover">
+              <img src="assets/images/covers/34.jpg" alt="The Invincible Warlord">
+            </div>
+            <div class="comic-info">
+              <span class="comic-genre">Action</span>
+              <h3 class="comic-title">The Invincible Warlord</h3>
+              <div class="comic-meta">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  25.8K
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  126.3K
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="comic-card">
+          <a href="comic-detail.html?id=35">
+            <div class="comic-cover">
+              <img src="assets/images/covers/35.jpg" alt="Rise of the Demon King">
+            </div>
+            <div class="comic-info">
+              <span class="comic-genre">Action/Fantasy</span>
+              <h3 class="comic-title">Rise of the Demon King</h3>
+              <div class="comic-meta">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  22.4K
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  112.9K
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+        
+        <div class="comic-card">
+          <a href="comic-detail.html?id=36">
+            <div class="comic-cover">
+              <img src="assets/images/covers/36.jpg" alt="Rebirth of the Earth Venerable">
+            </div>
+            <div class="comic-info">
+              <span class="comic-genre">Action/Adventure</span>
+              <h3 class="comic-title">Rebirth of the Earth Venerable</h3>
+              <div class="comic-meta">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  18.7K
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  95.2K
+                </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="pagination">
+        <a href="#" class="page-item active">1</a>
+        <a href="#" class="page-item">2</a>
+        <a href="#" class="page-item">3</a>
+        <a href="#" class="page-item">4</a>
+        <a href="#" class="page-item">5</a>
+        <a href="#" class="page-item next">Next</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Other genre sections (similar to Action) would be here, but hidden initially -->
+  <!-- They would follow the same structure as the Action section above -->
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="assets/icons/logo.svg" alt="Comic Verse Logo">
+            <span>Comic Verse</span>
+          </a>
+          <p>The ultimate platform for manga and comic enthusiasts.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3 class="footer-title">Explore</h3>
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="genres.html" class="footer-link">Genres</a>
+          <a href="daily.html" class="footer-link">Daily Updates</a>
+          <a href="library.html" class="footer-link">Library</a>
+        </div>
+        
+        <div class="footer-links">
+          <h3 class="footer-title">Support</h3>
+          <a href="#" class="footer-link">Help Center</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Contact Us</a>
+        </div>
+        
+        <div class="footer-links">
+          <h3 class="footer-title">Community</h3>
+          <a href="creator-dashboard.html" class="footer-link">Creator Dashboard</a>
+          <a href="#" class="footer-link">Forums</a>
+          <a href="#" class="footer-link">Blog</a>
+          <a href="#" class="footer-link">Discord</a>
+          
+          <h3 class="footer-title mt-lg">Follow Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Discord">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="4"></circle>
+                <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                <line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line>
+                <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Comic Verse. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Script to handle genre switching -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all genre category cards
+      const genreCards = document.querySelectorAll('.genre-category-card');
+      
+      // Get all genre content sections
+      const genreContents = document.querySelectorAll('.genre-content');
+      
+      // Add click event to each genre card
+      genreCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          // Get the target genre
+          const targetGenre = this.getAttribute('data-genre');
+          
+          // Hide all genre contents
+          genreContents.forEach(content => {
+            content.classList.remove('active');
+          });
+          
+          // Show the selected genre content
+          const targetContent = document.getElementById(targetGenre);
+          if (targetContent) {
+            targetContent.classList.add('active');
+            
+            // Smooth scroll to the content
+            targetContent.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      // Handle filter buttons
+      const filterButtons = document.querySelectorAll('.filter-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons in the same group
+          const parentGroup = this.closest('.filter-group');
+          parentGroup.querySelectorAll('.filter-item').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+        });
+      });
+    });
+  </script>
+
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

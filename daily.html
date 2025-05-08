@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Updates - Comic Verse</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/icons/favicon.png" type="image/png">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/icons/logo.svg" alt="Comic Verse Logo">
+          <span>Comic Verse</span>
+        </a>
+        
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="genres.html" class="nav-link">Genres</a>
+          <a href="daily.html" class="nav-link active">Daily</a>
+          <a href="library.html" class="nav-link">Library</a>
+          <a href="creator-dashboard.html" class="nav-link">Create</a>
+        </nav>
+        
+        <div class="header-right">
+          <form class="search-box">
+            <input type="text" placeholder="Search comics..." aria-label="Search comics">
+            <button type="submit" aria-label="Submit search">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+          
+          <a href="profile.html" class="btn btn-icon" aria-label="Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+          
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Daily Header -->
+  <section class="daily-hero">
+    <div class="container">
+      <div class="daily-hero-content">
+        <h1>Daily Updates</h1>
+        <p>Never miss a chapter! Track your favorite comics by their update schedule.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Schedule -->
+  <section class="section">
+    <div class="container">
+      <div class="daily-schedule">
+        <div class="day-tabs">
+          <button class="day-tab active" data-day="monday">
+            <div class="day-icon">MON</div>
+            <span class="day-name">Monday</span>
+          </button>
+          <button class="day-tab" data-day="tuesday">
+            <div class="day-icon">TUE</div>
+            <span class="day-name">Tuesday</span>
+          </button>
+          <button class="day-tab" data-day="wednesday">
+            <div class="day-icon">WED</div>
+            <span class="day-name">Wednesday</span>
+          </button>
+          <button class="day-tab" data-day="thursday">
+            <div class="day-icon">THU</div>
+            <span class="day-name">Thursday</span>
+          </button>
+          <button class="day-tab" data-day="friday">
+            <div class="day-icon">FRI</div>
+            <span class="day-name">Friday</span>
+          </button>
+          <button class="day-tab" data-day="saturday">
+            <div class="day-icon">SAT</div>
+            <span class="day-name">Saturday</span>
+          </button>
+          <button class="day-tab" data-day="sunday">
+            <div class="day-icon">SUN</div>
+            <span class="day-name">Sunday</span>
+          </button>
+        </div>
+        
+        <div class="day-content-wrapper">
+          <div class="filter-options">
+            <div class="filter-group">
+              <span class="filter-label">Filter By:</span>
+              <button class="filter-item active">All</button>
+              <button class="filter-item">Ongoing</button>
+              <button class="filter-item">Completed</button>
+            </div>
+            
+            <div class="filter-group">
+              <span class="filter-label">Sort By:</span>
+              <button class="filter-item active">Popular</button>
+              <button class="filter-item">Newest</button>
+              <button class="filter-item">A-Z</button>
+            </div>
+          </div>
+          
+          <!-- Monday Content (Initially Visible) -->
+          <div class="day-content active" id="monday-content">
+            <div class="day-header">
+              <h2>Monday Updates <span class="update-count">(24 Comics)</span></h2>
+              <div class="today-badge">Today</div>
+            </div>
+            
+            <div class="comic-grid">
+              <!-- Monday Comic 1 -->
+              <div class="comic-card">
+                <a href="comic-detail.html?id=21">
+                  <div class="comic-cover">
+                    <img src="assets/images/covers/21.jpg" alt="Death Field">
+                    <div class="update-badge">New Chapter</div>
+                  </div>
+                  <div class="comic-info">
+                    <span class="comic-genre">Horror</span>
+                    <h3 class="comic-title">Death Field</h3>
+                    <div class="comic-meta">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        19.2K
+                      </span>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        98.5K
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              
+              <!-- Monday Comic 2 -->
+              <div class="comic-card">
+                <a href="comic-detail.html?id=22">
+                  <div class="comic-cover">
+                    <img src="assets/images/covers/22.jpg" alt="How to Be a Princess">
+                    <div class="update-badge">New Chapter</div>
+                  </div>
+                  <div class="comic-info">
+                    <span class="comic-genre">Fantasy</span>
+                    <h3 class="comic-title">How to Be a Princess</h3>
+                    <div class="comic-meta">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        27.3K
+                      </span>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        124.7K
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              
+              <!-- Monday Comic 3 -->
+              <div class="comic-card">
+                <a href="comic-detail.html?id=23">
+                  <div class="comic-cover">
+                    <img src="assets/images/covers/23.jpg" alt="The Worst Infatuation">
+                    <div class="update-badge">New Chapter</div>
+                  </div>
+                  <div class="comic-info">
+                    <span class="comic-genre">Romance</span>
+                    <h3 class="comic-title">The Worst Infatuation</h3>
+                    <div class="comic-meta">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        32.1K
+                      </span>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        156.9K
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              
+              <!-- Monday Comic 4 -->
+              <div class="comic-card">
+                <a href="comic-detail.html?id=24">
+                  <div class="comic-cover">
+                    <img src="assets/images/covers/24.jpg" alt="Goblin's Ascent">
+                    <div class="update-badge">New Chapter</div>
+                  </div>
+                  <div class="comic-info">
+                    <span class="comic-genre">Fantasy</span>
+                    <h3 class="comic-title">Goblin's Ascent</h3>
+                    <div class="comic-meta">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        18.6K
+                      </span>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        94.3K
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              
+              <!-- Monday Comic 5 -->
+              <div class="comic-card">
+                <a href="comic-detail.html?id=25">
+                  <div class="comic-cover">
+                    <img src="assets/images/covers/25.jpg" alt="The Stunner">
+                  </div>
+                  <div class="comic-info">
+                    <span class="comic-genre">Action</span>
+                    <h3 class="comic-title">The Stunner</h3>
+                    <div class="comic-meta">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        16.2K
+                      </span>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        82.9K
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              
+              <!-- Monday Comic 6 -->
+              <div class="comic-card">
+                <a href="comic-detail.html?id=26">
+                  <div class="comic-cover">
+                    <img src="assets/images/covers/26.jpg" alt="Secret Pleasure">
+                  </div>
+                  <div class="comic-info">
+                    <span class="comic-genre">Romance</span>
+                    <h3 class="comic-title">Secret Pleasure</h3>
+                    <div class="comic-meta">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        30.8K
+                      </span>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        142.5K
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+              <a href="#" class="page-item active">1</a>
+              <a href="#" class="page-item">2</a>
+              <a href="#" class="page-item">3</a>
+              <a href="#" class="page-item">4</a>
+              <a href="#" class="page-item next">Next</a>
+            </div>
+          </div>
+          
+          <!-- Tuesday Content -->
+          <div class="day-content" id="tuesday-content">
+            <div class="day-header">
+              <h2>Tuesday Updates <span class="update-count">(19 Comics)</span></h2>
+            </div>
+            
+            <div class="comic-grid">
+              <!-- Tuesday Comic 1 -->
+              <div class="comic-card">
+                <a href="comic-detail.html?id=1">
+                  <div class="comic-cover">
+                    <img src="assets/images/covers/1.jpg" alt="The Necromancer">
+                  </div>
+                  <div class="comic-info">
+                    <span class="comic-genre">Fantasy</span>
+                    <h3 class="comic-title">The Necromancer</h3>
+                    <div class="comic-meta">
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                        </svg>
+                        35.1K
+                      </span>
+                      <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                          <circle cx="12" cy="12" r="3"></circle>
+                        </svg>
+                        175.8K
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              
+              <!-- Additional Tuesday comics would go here -->
+            </div>
+            
+            <!-- Pagination -->
+            <div class="pagination">
+              <a href="#" class="page-item active">1</a>
+              <a href="#" class="page-item">2</a>
+              <a href="#" class="page-item">3</a>
+              <a href="#" class="page-item next">Next</a>
+            </div>
+          </div>
+          
+          <!-- Other weekday content divs would follow the same pattern -->
+          <div class="day-content" id="wednesday-content">
+            <!-- Wednesday content -->
+          </div>
+          
+          <div class="day-content" id="thursday-content">
+            <!-- Thursday content -->
+          </div>
+          
+          <div class="day-content" id="friday-content">
+            <!-- Friday content -->
+          </div>
+          
+          <div class="day-content" id="saturday-content">
+            <!-- Saturday content -->
+          </div>
+          
+          <div class="day-content" id="sunday-content">
+            <!-- Sunday content -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Recommendations -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Recommended Daily Reading</h2>
+        <p class="section-subtitle">Comics our readers love to follow</p>
+      </div>
+      
+      <div class="recommendation-cards">
+        <div class="recommendation-card">
+          <div class="recommendation-header">
+            <div class="recommendation-day">Monday</div>
+            <div class="recommendation-badge">Most Popular</div>
+          </div>
+          <div class="recommendation-comics">
+            <div class="recommendation-comic">
+              <div class="recommendation-comic-cover">
+                <img src="assets/images/covers/23.jpg" alt="The Worst Infatuation">
+              </div>
+              <div class="recommendation-comic-info">
+                <h3>The Worst Infatuation</h3>
+                <p>Romance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="recommendation-card">
+          <div class="recommendation-header">
+            <div class="recommendation-day">Tuesday</div>
+            <div class="recommendation-badge">Most Popular</div>
+          </div>
+          <div class="recommendation-comics">
+            <div class="recommendation-comic">
+              <div class="recommendation-comic-cover">
+                <img src="assets/images/covers/1.jpg" alt="The Necromancer">
+              </div>
+              <div class="recommendation-comic-info">
+                <h3>The Necromancer</h3>
+                <p>Fantasy/Action</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="recommendation-card">
+          <div class="recommendation-header">
+            <div class="recommendation-day">Wednesday</div>
+            <div class="recommendation-badge">Most Popular</div>
+          </div>
+          <div class="recommendation-comics">
+            <div class="recommendation-comic">
+              <div class="recommendation-comic-cover">
+                <img src="assets/images/covers/13.jpg" alt="Counterattack Through Pregnancy">
+              </div>
+              <div class="recommendation-comic-info">
+                <h3>Counterattack Through Pregnancy</h3>
+                <p>Drama</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="recommendation-card">
+          <div class="recommendation-header">
+            <div class="recommendation-day">Thursday</div>
+            <div class="recommendation-badge">Most Popular</div>
+          </div>
+          <div class="recommendation-comics">
+            <div class="recommendation-comic">
+              <div class="recommendation-comic-cover">
+                <img src="assets/images/covers/33.jpg" alt="The Last Hero">
+              </div>
+              <div class="recommendation-comic-info">
+                <h3>The Last Hero</h3>
+                <p>Action</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscription -->
+  <section class="section">
+    <div class="container">
+      <div class="subscription-box">
+        <div class="subscription-content">
+          <h2>Stay Updated with Your Favorite Comics</h2>
+          <p>Subscribe to receive notifications when new chapters are released for your followed comics.</p>
+          <form class="subscription-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit" class="btn btn-primary">Subscribe</button>
+          </form>
+          <div class="subscription-note">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+              <polyline points="17 21 17 13 7 13 7 21"></polyline>
+              <polyline points="7 3 7 8 15 8"></polyline>
+            </svg>
+            <span>You can customize your notification preferences in your profile settings.</span>
+          </div>
+        </div>
+        <div class="subscription-image">
+          <img src="assets/images/subscription-image.png" alt="Subscription">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="assets/icons/logo.svg" alt="Comic Verse Logo">
+            <span>Comic Verse</span>
+          </a>
+          <p>The ultimate platform for manga and comic enthusiasts.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3 class="footer-title">Explore</h3>
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="genres.html" class="footer-link">Genres</a>
+          <a href="daily.html" class="footer-link">Daily Updates</a>
+          <a href="library.html" class="footer-link">Library</a>
+        </div>
+        
+        <div class="footer-links">
+          <h3 class="footer-title">Support</h3>
+          <a href="#" class="footer-link">Help Center</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Contact Us</a>
+        </div>
+        
+        <div class="footer-links">
+          <h3 class="footer-title">Community</h3>
+          <a href="creator-dashboard.html" class="footer-link">Creator Dashboard</a>
+          <a href="#" class="footer-link">Forums</a>
+          <a href="#" class="footer-link">Blog</a>
+          <a href="#" class="footer-link">Discord</a>
+          
+          <h3 class="footer-title mt-lg">Follow Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Discord">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="4"></circle>
+                <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                <line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line>
+                <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Comic Verse. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Script to handle daily tabs -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Get all day tabs
+      const dayTabs = document.querySelectorAll('.day-tab');
+      
+      // Get all day content divs
+      const dayContents = document.querySelectorAll('.day-content');
+      
+      // Add click event to each day tab
+      dayTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          // Get the target day
+          const targetDay = this.getAttribute('data-day');
+          
+          // Remove active class from all tabs
+          dayTabs.forEach(t => t.classList.remove('active'));
+          
+          // Add active class to clicked tab
+          this.classList.add('active');
+          
+          // Hide all day contents
+          dayContents.forEach(content => {
+            content.classList.remove('active');
+          });
+          
+          // Show the selected day content
+          const targetContent = document.getElementById(`${targetDay}-content`);
+          if (targetContent) {
+            targetContent.classList.add('active');
+          }
+        });
+      });
+      
+      // Handle filter buttons
+      const filterButtons = document.querySelectorAll('.filter-item');
+      
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          // Remove active class from all buttons in the same group
+          const parentGroup = this.closest('.filter-group');
+          parentGroup.querySelectorAll('.filter-item').forEach(btn => {
+            btn.classList.remove('active');
+          });
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+        });
+      });
+    });
+  </script>
+
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

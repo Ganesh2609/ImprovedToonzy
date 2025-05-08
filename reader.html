@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Reading: The Necromancer Chapter 1 - Comic Verse</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/icons/favicon.png" type="image/png">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/reader.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- PDF.js library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+</head>
+<body class="reader-page">
+  <!-- Reading progress bar -->
+  <div class="reading-progress"></div>
+  
+  <!-- Reader Header -->
+  <header class="reader-header">
+    <div class="reader-nav">
+      <div class="reader-nav-left">
+        <a href="comic-detail.html" class="btn-back">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back</span>
+        </a>
+        <h1 class="reader-title">The Necromancer: Chapter 1</h1>
+      </div>
+      
+      <div class="reader-nav-right">
+        <div class="reader-controls">
+          <button class="btn-page-nav" id="prev-page" aria-label="Previous page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <div class="page-info">
+            <span id="current-page">1</span> / <span id="total-pages">0</span>
+          </div>
+          <button class="btn-page-nav" id="next-page" aria-label="Next page">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+        
+        <button class="btn-settings" id="settings-btn" aria-label="Reader settings">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Reader Content -->
+  <main class="reader-content">
+    <div class="reader-container" id="reader-container">
+      <!-- Comic pages will be rendered here by JavaScript -->
+    </div>
+  </main>
+
+  <!-- Reader Footer -->
+  <footer class="reader-footer">
+    <div class="chapter-navigation">
+      <button class="btn-chapter prev" id="prev-chapter" disabled>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+        <span>Previous Chapter</span>
+      </button>
+      
+      <button class="btn-chapter next" id="next-chapter">
+        <span>Next Chapter</span>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Settings Panel -->
+  <div class="settings-panel">
+    <div class="settings-header">
+      <h2 class="settings-title">Reading Settings</h2>
+      <button class="btn-close-settings" aria-label="Close settings">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    
+    <div class="settings-content">
+      <div class="settings-section">
+        <h3 class="settings-section-title">Reading Mode</h3>
+        <div class="settings-buttons">
+          <button class="settings-button" data-mode="light">Light</button>
+          <button class="settings-button active" data-mode="dark">Dark</button>
+          <button class="settings-button" data-mode="sepia">Sepia</button>
+        </div>
+      </div>
+      
+      <div class="settings-section">
+        <h3 class="settings-section-title">Zoom Level</h3>
+        <div class="settings-option">
+          <label for="zoom-range" class="settings-option-label">Scale: <span id="zoom-value">100%</span></label>
+          <input type="range" id="zoom-range" class="settings-range" min="50" max="150" step="10" value="100">
+        </div>
+      </div>
+      
+      <div class="settings-section">
+        <h3 class="settings-section-title">Reading Direction</h3>
+        <div class="settings-buttons">
+          <button class="settings-button active" data-direction="vertical">Vertical</button>
+          <button class="settings-button" data-direction="horizontal">Horizontal</button>
+        </div>
+      </div>
+      
+      <div class="settings-section">
+        <h3 class="settings-section-title">Navigation</h3>
+        <div class="settings-buttons">
+          <button class="settings-button active" data-navigation="scroll">Scroll</button>
+          <button class="settings-button" data-navigation="tap">Tap</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Overlay -->
+  <div class="settings-overlay"></div>
+
+  <!-- Touch Gestures Hint -->
+  <div class="touch-hint">
+    <div class="touch-hint-header">
+      <h3 class="touch-hint-title">Reading Tips</h3>
+      <button class="btn-close-hint" aria-label="Close hint">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+    <div class="touch-hint-content">
+      <p>Here are some tips for the best reading experience:</p>
+      <ul class="touch-hint-list">
+        <li>Scroll down to read through pages</li>
+        <li>Double-tap to zoom in/out on a page</li>
+        <li>Swipe left/right to navigate between pages</li>
+        <li>Tap the screen to show/hide navigation controls</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/reader.js"></script>
+</body>
+</html>

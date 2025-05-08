@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Library - Comic Verse</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="assets/icons/favicon.png" type="image/png">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="assets/icons/logo.svg" alt="Comic Verse Logo">
+          <span>Comic Verse</span>
+        </a>
+        
+        <button class="menu-toggle" aria-label="Toggle menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        
+        <nav class="nav-menu">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="genres.html" class="nav-link">Genres</a>
+          <a href="daily.html" class="nav-link">Daily</a>
+          <a href="library.html" class="nav-link active">Library</a>
+          <a href="creator-dashboard.html" class="nav-link">Create</a>
+        </nav>
+        
+        <div class="header-right">
+          <form class="search-box">
+            <input type="text" placeholder="Search comics..." aria-label="Search comics">
+            <button type="submit" aria-label="Submit search">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </button>
+          </form>
+          
+          <a href="profile.html" class="btn btn-icon" aria-label="Profile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </a>
+          
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Library Header -->
+  <section class="library-hero">
+    <div class="container">
+      <div class="library-hero-content">
+        <h1>My Library</h1>
+        <p>Your personal collection of comics and reading history</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Library Tabs -->
+  <section class="section">
+    <div class="container">
+      <div class="tabs library-tabs">
+        <div class="tab-list">
+          <button class="tab-item active" data-tab="favorites">Favorites</button>
+          <button class="tab-item" data-tab="reading">Reading</button>
+          <button class="tab-item" data-tab="history">History</button>
+          <button class="tab-item" data-tab="downloaded">Downloaded</button>
+          <button class="tab-item" data-tab="collections">Collections</button>
+        </div>
+        
+        <!-- Favorites Tab (Initially Visible) -->
+        <div class="tab-content active" id="favorites">
+          <div class="section-header">
+            <h2 class="section-title">Favorites</h2>
+            <div class="sort-dropdown">
+              <label for="sort-favorites">Sort by:</label>
+              <select id="sort-favorites" class="sort-select">
+                <option value="date-added">Date Added</option>
+                <option value="alphabetical">Alphabetical</option>
+                <option value="last-read">Last Read</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="comic-grid">
+            <!-- Favorite Comic 1 -->
+            <div class="comic-card">
+              <a href="comic-detail.html?id=1">
+                <div class="comic-cover">
+                  <img src="assets/images/covers/1.jpg" alt="The Necromancer">
+                  <div class="update-badge">Updated</div>
+                </div>
+                <div class="comic-info">
+                  <span class="comic-genre">Fantasy</span>
+                  <h3 class="comic-title">The Necromancer</h3>
+                  <div class="comic-meta">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      Last read: 2 days ago
+                    </span>
+                  </div>
+                </div>
+              </a>
+              <button class="btn-favorite active" data-id="1" aria-label="Remove from favorites">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Favorite Comic 2 -->
+            <div class="comic-card">
+              <a href="comic-detail.html?id=2">
+                <div class="comic-cover">
+                  <img src="assets/images/covers/2.jpg" alt="Marvelous Hero of the Sword">
+                </div>
+                <div class="comic-info">
+                  <span class="comic-genre">Action</span>
+                  <h3 class="comic-title">Marvelous Hero of the Sword</h3>
+                  <div class="comic-meta">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      Last read: 1 week ago
+                    </span>
+                  </div>
+                </div>
+              </a>
+              <button class="btn-favorite active" data-id="2" aria-label="Remove from favorites">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Favorite Comic 3 -->
+            <div class="comic-card">
+              <a href="comic-detail.html?id=23">
+                <div class="comic-cover">
+                  <img src="assets/images/covers/23.jpg" alt="The Worst Infatuation">
+                  <div class="update-badge">New Chapter</div>
+                </div>
+                <div class="comic-info">
+                  <span class="comic-genre">Romance</span>
+                  <h3 class="comic-title">The Worst Infatuation</h3>
+                  <div class="comic-meta">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      Last read: Today
+                    </span>
+                  </div>
+                </div>
+              </a>
+              <button class="btn-favorite active" data-id="23" aria-label="Remove from favorites">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Favorite Comic 4 -->
+            <div class="comic-card">
+              <a href="comic-detail.html?id=13">
+                <div class="comic-cover">
+                  <img src="assets/images/covers/13.jpg" alt="Counterattack Through Pregnancy">
+                </div>
+                <div class="comic-info">
+                  <span class="comic-genre">Drama</span>
+                  <h3 class="comic-title">Counterattack Through Pregnancy</h3>
+                  <div class="comic-meta">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      Last read: 3 days ago
+                    </span>
+                  </div>
+                </div>
+              </a>
+              <button class="btn-favorite active" data-id="13" aria-label="Remove from favorites">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Favorite Comic 5 -->
+            <div class="comic-card">
+              <a href="comic-detail.html?id=33">
+                <div class="comic-cover">
+                  <img src="assets/images/covers/33.jpg" alt="The Last Hero">
+                </div>
+                <div class="comic-info">
+                  <span class="comic-genre">Action</span>
+                  <h3 class="comic-title">The Last Hero</h3>
+                  <div class="comic-meta">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      Last read: 2 weeks ago
+                    </span>
+                  </div>
+                </div>
+              </a>
+              <button class="btn-favorite active" data-id="33" aria-label="Remove from favorites">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Favorite Comic 6 -->
+            <div class="comic-card">
+              <a href="comic-detail.html?id=11">
+                <div class="comic-cover">
+                  <img src="assets/images/covers/11.jpg" alt="Run Away If You Can">
+                </div>
+                <div class="comic-info">
+                  <span class="comic-genre">Thriller</span>
+                  <h3 class="comic-title">Run Away If You Can</h3>
+                  <div class="comic-meta">
+                    <span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                      </svg>
+                      Last read: 1 month ago
+                    </span>
+                  </div>
+                </div>
+              </a>
+              <button class="btn-favorite active" data-id="11" aria-label="Remove from favorites">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Pagination -->
+          <div class="pagination">
+            <a href="#" class="page-item active">1</a>
+            <a href="#" class="page-item">2</a>
+            <a href="#" class="page-item">3</a>
+            <a href="#" class="page-item next">Next</a>
+          </div>
+        </div>
+        
+        <!-- Currently Reading Tab -->
+        <div class="tab-content" id="reading">
+          <div class="section-header">
+            <h2 class="section-title">Currently Reading</h2>
+            <div class="sort-dropdown">
+              <label for="sort-reading">Sort by:</label>
+              <select id="sort-reading" class="sort-select">
+                <option value="last-read">Last Read</option>
+                <option value="progress">Progress</option>
+                <option value="alphabetical">Alphabetical</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="reading-list">
+            <!-- Reading Item 1 -->
+            <div class="reading-item">
+              <div class="reading-cover">
+                <a href="comic-detail.html?id=1">
+                  <img src="assets/images/covers/1.jpg" alt="The Necromancer">
+                </a>
+              </div>
+              <div class="reading-info">
+                <h3 class="reading-title">
+                  <a href="comic-detail.html?id=1">The Necromancer</a>
+                </h3>
+                <span class="reading-genre">Fantasy</span>
+                <div class="reading-progress">
+                  <div class="progress-text">
+                    <span>Chapter 23/35</span>
+                    <span>65% Complete</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 65%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="reading-actions">
+                <a href="reader.html?id=1&chapter=24" class="btn btn-primary btn-sm">Continue</a>
+                <button class="btn-more" aria-label="More options">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="12" cy="5" r="1"></circle>
+                    <circle cx="12" cy="19" r="1"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Reading Item 2 -->
+            <div class="reading-item">
+              <div class="reading-cover">
+                <a href="comic-detail.html?id=23">
+                  <img src="assets/images/covers/23.jpg" alt="The Worst Infatuation">
+                  <div class="update-badge">New Chapter</div>
+                </a>
+              </div>
+              <div class="reading-info">
+                <h3 class="reading-title">
+                  <a href="comic-detail.html?id=23">The Worst Infatuation</a>
+                </h3>
+                <span class="reading-genre">Romance</span>
+                <div class="reading-progress">
+                  <div class="progress-text">
+                    <span>Chapter 16/18</span>
+                    <span>88% Complete</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 88%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="reading-actions">
+                <a href="reader.html?id=23&chapter=17" class="btn btn-primary btn-sm">Continue</a>
+                <button class="btn-more" aria-label="More options">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="12" cy="5" r="1"></circle>
+                    <circle cx="12" cy="19" r="1"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+            
+            <!-- Reading Item 3 -->
+            <div class="reading-item">
+              <div class="reading-cover">
+                <a href="comic-detail.html?id=13">
+                  <img src="assets/images/covers/13.jpg" alt="Counterattack Through Pregnancy">
+                </a>
+              </div>
+              <div class="reading-info">
+                <h3 class="reading-title">
+                  <a href="comic-detail.html?id=13">Counterattack Through Pregnancy</a>
+                </h3>
+                <span class="reading-genre">Drama</span>
+                <div class="reading-progress">
+                  <div class="progress-text">
+                    <span>Chapter 8/22</span>
+                    <span>36% Complete</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress" style="width: 36%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="reading-actions">
+                <a href="reader.html?id=13&chapter=9" class="btn btn-primary btn-sm">Continue</a>
+                <button class="btn-more" aria-label="More options">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="1"></circle>
+                    <circle cx="12" cy="5" r="1"></circle>
+                    <circle cx="12" cy="19" r="1"></circle>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Reading History Tab -->
+        <div class="tab-content" id="history">
+          <div class="section-header">
+            <h2 class="section-title">Reading History</h2>
+            <div class="history-actions">
+              <button class="btn btn-outline btn-sm">Clear History</button>
+            </div>
+          </div>
+          
+          <div class="history-list">
+            <!-- Today's History -->
+            <div class="history-group">
+              <h3 class="history-date">Today</h3>
+              <div class="history-items">
+                <!-- History Item 1 -->
+                <div class="history-item">
+                  <div class="history-cover">
+                    <a href="comic-detail.html?id=23">
+                      <img src="assets/images/covers/23.jpg" alt="The Worst Infatuation">
+                    </a>
+                  </div>
+                  <div class="history-info">
+                    <h4 class="history-title">
+                      <a href="comic-detail.html?id=23">The Worst Infatuation</a>
+                    </h4>
+                    <div class="history-meta">
+                      <span>Chapter 16</span>
+                      <span>12:45 PM</span>
+                    </div>
+                  </div>
+                  <div class="history-actions">
+                    <a href="reader.html?id=23&chapter=16" class="btn btn-outline btn-sm">Read Again</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Yesterday's History -->
+            <div class="history-group">
+              <h3 class="history-date">Yesterday</h3>
+              <div class="history-items">
+                <!-- History Item 2 -->
+                <div class="history-item">
+                  <div class="history-cover">
+                    <a href="comic-detail.html?id=1">
+                      <img src="assets/images/covers/1.jpg" alt="The Necromancer">
+                    </a>
+                  </div>
+                  <div class="history-info">
+                    <h4 class="history-title">
+                      <a href="comic-detail.html?id=1">The Necromancer</a>
+                    </h4>
+                    <div class="history-meta">
+                      <span>Chapter 23</span>
+                      <span>8:30 PM</span>
+                    </div>
+                  </div>
+                  <div class="history-actions">
+                    <a href="reader.html?id=1&chapter=23" class="btn btn-outline btn-sm">Read Again</a>
+                  </div>
+                </div>
+                
+                <!-- History Item 3 -->
+                <div class="history-item">
+                  <div class="history-cover">
+                    <a href="comic-detail.html?id=13">
+                      <img src="assets/images/covers/13.jpg" alt="Counterattack Through Pregnancy">
+                    </a>
+                  </div>
+                  <div class="history-info">
+                    <h4 class="history-title">
+                      <a href="comic-detail.html?id=13">Counterattack Through Pregnancy</a>
+                    </h4>
+                    <div class="history-meta">
+                      <span>Chapter 8</span>
+                      <span>3:15 PM</span>
+                    </div>
+                  </div>
+                  <div class="history-actions">
+                    <a href="reader.html?id=13&chapter=8" class="btn btn-outline btn-sm">Read Again</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- More history groups would go here -->
+          </div>
+          
+          <!-- Load More Button -->
+          <div class="text-center mt-lg">
+            <button class="btn btn-outline">Load More</button>
+          </div>
+        </div>
+        
+        <!-- Downloaded Comics Tab -->
+        <div class="tab-content" id="downloaded">
+          <div class="section-header">
+            <h2 class="section-title">Downloaded Comics</h2>
+            <div class="storage-info">
+              <span>Storage Used: 245 MB / 1 GB</span>
+              <div class="storage-bar">
+                <div class="storage-progress" style="width: 24.5%"></div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="empty-state">
+            <div class="empty-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+            <h3>No Downloaded Comics</h3>
+            <p>Download your favorite comics to read them offline!</p>
+            <a href="index.html" class="btn btn-primary">Browse Comics</a>
+          </div>
+        </div>
+        
+        <!-- Collections Tab -->
+        <div class="tab-content" id="collections">
+          <div class="section-header">
+            <h2 class="section-title">My Collections</h2>
+            <button class="btn btn-primary btn-sm">New Collection</button>
+          </div>
+          
+          <div class="collections-grid">
+            <!-- Collection 1 -->
+            <div class="collection-card">
+              <div class="collection-covers">
+                <img src="assets/images/covers/2.jpg" alt="Marvelous Hero of the Sword" class="collection-cover-main">
+                <img src="assets/images/covers/33.jpg" alt="The Last Hero" class="collection-cover-secondary">
+                <img src="assets/images/covers/34.jpg" alt="The Invincible Warlord" class="collection-cover-tertiary">
+              </div>
+              <div class="collection-info">
+                <h3 class="collection-title">Epic Action</h3>
+                <span class="collection-count">6 Comics</span>
+              </div>
+              <button class="btn-collection-options" aria-label="Collection options">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="12" cy="5" r="1"></circle>
+                  <circle cx="12" cy="19" r="1"></circle>
+                </svg>
+              </button>
+            </div>
+            
+            <!-- Collection 2 -->
+            <div class="collection-card">
+              <div class="collection-covers">
+                <img src="assets/images/covers/13.jpg" alt="Counterattack Through Pregnancy" class="collection-cover-main">
+                <img src="assets/images/covers/23.jpg" alt="The Worst Infatuation" class="collection-cover-secondary">
+                <img src="assets/images/covers/14.jpg" alt="The Daughter of Duke Doesn't Want" class="collection-cover-tertiary">
+              </div>
+              <div class="collection-info">
+                <h3 class="collection-title">Romance & Drama</h3>
+                <span class="collection-count">8 Comics</span>
+              </div>
+              <button class="btn-collection-options" aria-label="Collection options">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="1"></circle>
+                  <circle cx="12" cy="5" r="1"></circle>
+                  <circle cx="12" cy="19" r="1"></circle>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recommendations -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Recommended For You</h2>
+        <p class="section-subtitle">Based on your reading history</p>
+      </div>
+      
+      <div class="comic-grid">
+        <!-- Recommended Comic 1 -->
+        <div class="comic-card">
+          <a href="comic-detail.html?id=3">
+            <div class="comic-cover">
+              <img src="assets/images/covers/3.jpg" alt="Desharow Merman">
+            </div>
+            <div class="comic-info">
+              <span class="comic-genre">Fantasy</span>
+              <h3 class="comic-title">Desharow Merman</h3>
+              <div class="comic-meta">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  22.7K
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  108.9K
+                </span>
+              </div>
+            </div>
+          </a>
+          <button class="btn-favorite" data-id="3" aria-label="Add to favorites">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Recommended Comic 2 -->
+        <div class="comic-card">
+          <a href="comic-detail.html?id=6">
+            <div class="comic-cover">
+              <img src="assets/images/covers/6.jpg" alt="Leveling Up into the Future">
+            </div>
+            <div class="comic-info">
+              <span class="comic-genre">Sci-Fi</span>
+              <h3 class="comic-title">Leveling Up into the Future</h3>
+              <div class="comic-meta">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  27.4K
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  132.6K
+                </span>
+              </div>
+            </div>
+          </a>
+          <button class="btn-favorite" data-id="6" aria-label="Add to favorites">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Recommended Comic 3 -->
+        <div class="comic-card">
+          <a href="comic-detail.html?id=16">
+            <div class="comic-cover">
+              <img src="assets/images/covers/16.jpg" alt="Fatal Wife, Mortal Love">
+            </div>
+            <div class="comic-info">
+              <span class="comic-genre">Romance</span>
+              <h3 class="comic-title">Fatal Wife, Mortal Love</h3>
+              <div class="comic-meta">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  41.2K
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  198.6K
+                </span>
+              </div>
+            </div>
+          </a>
+          <button class="btn-favorite" data-id="16" aria-label="Add to favorites">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+        </div>
+        
+        <!-- Recommended Comic 4 -->
+        <div class="comic-card">
+          <a href="comic-detail.html?id=21">
+            <div class="comic-cover">
+              <img src="assets/images/covers/21.jpg" alt="Death Field">
+              <div class="update-badge">New Chapter</div>
+            </div>
+            <div class="comic-info">
+              <span class="comic-genre">Horror</span>
+              <h3 class="comic-title">Death Field</h3>
+              <div class="comic-meta">
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                  </svg>
+                  19.2K
+                </span>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  98.5K
+                </span>
+              </div>
+            </div>
+          </a>
+          <button class="btn-favorite" data-id="21" aria-label="Add to favorites">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <div class="text-center mt-lg">
+        <a href="index.html" class="btn btn-outline">Browse More Comics</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mobile App Promotion -->
+  <section class="section">
+    <div class="container">
+      <div class="app-promo">
+        <div class="app-promo-content">
+          <div class="app-promo-text">
+            <h2>Read Anywhere, Anytime</h2>
+            <p>Install our mobile app to read your favorite comics offline and get notified when new chapters are released.</p>
+            <div class="app-buttons">
+              <a href="#" class="app-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 5.53 9.39c1.29-1.53 3.2-2.48 5.04-2.34 1.58.12 3.06 1.07 3.98 1.07.95 0 2.7-1.06 4.59-.9.78.03 2.96.31 4.36 2.32-3.96 2.06-3.35 7.41.21 9.97zM15.84 2.8c-1.4 1.15-2.08 2.86-1.92 4.54 1.6.11 3.2-.73 4.12-1.97 1-1.35 1.38-2.98 1.25-4.52-1.56-.11-3.11.44-4.15 1.95z"></path>
+                </svg>
+                <span>
+                  <small>Download on the</small>
+                  App Store
+                </span>
+              </a>
+              <a href="#" class="app-button">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"></path>
+                  <path d="M13 13l6 6"></path>
+                </svg>
+                <span>
+                  <small>GET IT ON</small>
+                  Google Play
+                </span>
+              </a>
+            </div>
+          </div>
+          <div class="app-promo-image">
+            <img src="assets/images/app-promo.png" alt="Comic Verse Mobile App">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <a href="index.html">
+            <img src="assets/icons/logo.svg" alt="Comic Verse Logo">
+            <span>Comic Verse</span>
+          </a>
+          <p>The ultimate platform for manga and comic enthusiasts.</p>
+        </div>
+        
+        <div class="footer-links">
+          <h3 class="footer-title">Explore</h3>
+          <a href="index.html" class="footer-link">Home</a>
+          <a href="genres.html" class="footer-link">Genres</a>
+          <a href="daily.html" class="footer-link">Daily Updates</a>
+          <a href="library.html" class="footer-link">Library</a>
+        </div>
+        
+        <div class="footer-links">
+          <h3 class="footer-title">Support</h3>
+          <a href="#" class="footer-link">Help Center</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Contact Us</a>
+        </div>
+        
+        <div class="footer-links">
+          <h3 class="footer-title">Community</h3>
+          <a href="creator-dashboard.html" class="footer-link">Creator Dashboard</a>
+          <a href="#" class="footer-link">Forums</a>
+          <a href="#" class="footer-link">Blog</a>
+          <a href="#" class="footer-link">Discord</a>
+          
+          <h3 class="footer-title mt-lg">Follow Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-link" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Discord">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="4"></circle>
+                <line x1="4.93" y1="4.93" x2="9.17" y2="9.17"></line>
+                <line x1="14.83" y1="14.83" x2="19.07" y2="19.07"></line>
+                <line x1="14.83" y1="9.17" x2="19.07" y2="4.93"></line>
+                <line x1="14.83" y1="9.17" x2="18.36" y2="5.64"></line>
+                <line x1="4.93" y1="19.07" x2="9.17" y2="14.83"></line>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Comic Verse. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top button -->
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- More Options Modal -->
+  <div class="modal" id="optionsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Options</h3>
+        <button class="btn-close-modal" aria-label="Close modal">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="options-list">
+          <button class="option-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+            </svg>
+            <span>Edit Notes</span>
+          </button>
+          <button class="option-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download</span>
+          </button>
+          <button class="option-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <rect x="7" y="7" width="3" height="9"></rect>
+              <rect x="14" y="7" width="3" height="5"></rect>
+            </svg>
+            <span>Add to Collection</span>
+          </button>
+          <button class="option-item remove">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              <line x1="10" y1="11" x2="10" y2="17"></line>
+              <line x1="14" y1="11" x2="14" y2="17"></line>
+            </svg>
+            <span>Remove from Library</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast notification -->
+  <div class="toast" id="toast">
+    <span class="toast-message">Added to favorites!</span>
+  </div>
+
+  <!-- Script to handle tabs -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Tab functionality
+      const tabItems = document.querySelectorAll('.tab-item');
+      const tabContents = document.querySelectorAll('.tab-content');
+      
+      tabItems.forEach(item => {
+        item.addEventListener('click', () => {
+          const tabId = item.getAttribute('data-tab');
+          
+          // Remove active class from all tabs and contents
+          tabItems.forEach(tab => tab.classList.remove('active'));
+          tabContents.forEach(content => content.classList.remove('active'));
+          
+          // Add active class to selected tab and content
+          item.classList.add('active');
+          document.getElementById(tabId).classList.add('active');
+        });
+      });
+      
+      // Favorite button functionality
+      const favoriteButtons = document.querySelectorAll('.btn-favorite');
+      
+      favoriteButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          this.classList.toggle('active');
+          
+          const comicId = this.getAttribute('data-id');
+          const isFavorited = this.classList.contains('active');
+          
+          // Show toast message
+          const toast = document.getElementById('toast');
+          const toastMessage = toast.querySelector('.toast-message');
+          
+          if (isFavorited) {
+            toastMessage.textContent = 'Added to favorites!';
+          } else {
+            toastMessage.textContent = 'Removed from favorites!';
+          }
+          
+          // Show toast
+          toast.classList.add('show');
+          
+          // Hide toast after 3 seconds
+          setTimeout(() => {
+            toast.classList.remove('show');
+          }, 3000);
+        });
+      });
+      
+      // More options button functionality
+      const moreButtons = document.querySelectorAll('.btn-more, .btn-collection-options');
+      const optionsModal = document.getElementById('optionsModal');
+      const closeModalButton = document.querySelector('.btn-close-modal');
+      
+      moreButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          optionsModal.classList.add('show');
+        });
+      });
+      
+      // Close modal when clicking the close button
+      if (closeModalButton) {
+        closeModalButton.addEventListener('click', () => {
+          optionsModal.classList.remove('show');
+        });
+      }
+      
+      // Close modal when clicking outside
+      window.addEventListener('click', (e) => {
+        if (e.target === optionsModal) {
+          optionsModal.classList.remove('show');
+        }
+      });
+    });
+  </script>
+
+  <!-- Main Script -->
+  <script src="js/main.js"></script>
+</body>
+</html>

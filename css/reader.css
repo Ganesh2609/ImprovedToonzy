@@ -1,0 +1,643 @@
+/* ==============================
+   Comic Reader Specific Styles
+   ============================== */
+
+   body.reader-page {
+    background-color: #121212;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  /* Reader Header */
+  .reader-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(18, 18, 18, 0.95);
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .reader-header.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  
+  .reader-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+  }
+  
+  .reader-nav-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .btn-back {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-back:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-back svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .reader-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+  
+  .reader-nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .reader-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 6px 12px;
+    border-radius: 20px;
+  }
+  
+  .btn-page-nav {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-page-nav:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-page-nav svg {
+    width: 18px;
+    height: 18px;
+    color: #fff;
+  }
+  
+  .page-info {
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  
+  .btn-settings {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-settings:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .btn-settings svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  /* Reader Content */
+  .reader-content {
+    padding: 70px 0 60px;
+    min-height: 100vh;
+  }
+  
+  .reader-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 0;
+    color: #fff;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-left-color: #6200ea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  .page-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .comic-page {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+    position: relative;
+    background-color: #1e1e1e;
+  }
+  
+  .comic-page.loading {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .comic-page:hover {
+    transform: translateY(-5px);
+  }
+  
+  .comic-page img {
+    width: 100%;
+    height: auto;
+    display: block;
+    vertical-align: middle;
+  }
+  
+  .page-divider {
+    width: 50px;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+    margin: 10px 0;
+  }
+  
+  /* Reader Footer */
+  .reader-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(18, 18, 18, 0.95);
+    padding: 12px 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .reader-footer.hidden {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  
+  .chapter-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .btn-chapter {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background-color: #6200ea;
+    color: #fff;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-chapter:hover {
+    background-color: #7c26ff;
+    transform: translateY(-2px);
+  }
+  
+  .btn-chapter:disabled {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .btn-chapter.prev svg {
+    margin-right: 5px;
+  }
+  
+  .btn-chapter.next svg {
+    margin-left: 5px;
+  }
+  
+  /* Mobile Navigation Buttons */
+  .mobile-nav-buttons {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 900;
+  }
+  
+  .btn-float {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #6200ea;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+  
+  .btn-float:hover {
+    transform: scale(1.1);
+    background-color: #7c26ff;
+  }
+  
+  .btn-float svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* Reader Settings Panel */
+  .settings-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100%;
+    background-color: #1e1e1e;
+    z-index: 1100;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .settings-panel.active {
+    transform: translateX(0);
+  }
+  
+  .settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .settings-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .btn-close-settings {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .btn-close-settings svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .settings-section {
+    margin-bottom: 20px;
+  }
+  
+  .settings-section-title {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .settings-option {
+    margin-bottom: 15px;
+  }
+  
+  .settings-option-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+  }
+  
+  .settings-range {
+    width: 100%;
+    -webkit-appearance: none;
+    height: 5px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+  }
+  
+  .settings-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #6200ea;
+    cursor: pointer;
+  }
+  
+  .settings-range::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #6200ea;
+    cursor: pointer;
+    border: none;
+  }
+  
+  .settings-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .settings-button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .settings-button.active {
+    background-color: #6200ea;
+  }
+  
+  .settings-button:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Overlay */
+  .settings-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .settings-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  /* Touch Gestures Hint */
+  .touch-hint {
+    position: fixed;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 12px;
+    padding: 15px 20px;
+    width: 80%;
+    max-width: 320px;
+    z-index: 1000;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: none;
+  }
+  
+  .touch-hint.active {
+    display: block;
+    animation: fadeInUp 0.5s ease forwards;
+  }
+  
+  .touch-hint-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .touch-hint-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .btn-close-hint {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .touch-hint-content {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .touch-hint-list {
+    list-style: disc;
+    padding-left: 20px;
+    margin: 10px 0;
+  }
+  
+  .touch-hint-list li {
+    margin-bottom: 8px;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate(-50%, 20px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+  }
+  
+  /* Reading Progress Bar */
+  .reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: #6200ea;
+    z-index: 1100;
+    width: 0%;
+    transition: width 0.1s ease;
+  }
+  
+  /* Double-tap zoom styles */
+  .comic-page.zoomed {
+    transform: scale(1.5);
+    z-index: 10;
+    cursor: zoom-out;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 992px) {
+    .reader-container {
+      max-width: 700px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .reader-container {
+      max-width: 100%;
+      padding: 0 10px;
+    }
+    
+    .reader-title {
+      display: none;
+    }
+    
+    .btn-chapter {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+    
+    .btn-chapter span {
+      display: none;
+    }
+    
+    .btn-chapter svg {
+      margin: 0 !important;
+    }
+    
+    .reader-controls {
+      padding: 4px 8px;
+    }
+    
+    .btn-page-nav {
+      width: 26px;
+      height: 26px;
+    }
+    
+    .btn-page-nav svg {
+      width: 16px;
+      height: 16px;
+    }
+    
+    .page-info {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .reader-nav {
+      padding: 10px 15px;
+    }
+    
+    .btn-back {
+      padding: 6px 10px;
+      font-size: 0.8rem;
+    }
+    
+    .btn-back span {
+      display: none;
+    }
+    
+    .reader-footer {
+      padding: 10px 15px;
+    }
+    
+    .settings-panel {
+      width: 100%;
+    }
+  }
+  
+  /* Preloader for comic pages */
+  .page-preloader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1e1e1e;
+    z-index: 5;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .page-preloader.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  /* Accessibility Improvements */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* Touch Targets for Mobile */
+  @media (hover: none) and (pointer: coarse) {
+    .btn-page-nav,
+    .btn-settings,
+    .btn-float {
+      min-width: 44px;
+      min-height: 44px;
+    }
+    
+    .btn-back,
+    .btn-chapter {
+      min-height: 44px;
+    }
+  }
