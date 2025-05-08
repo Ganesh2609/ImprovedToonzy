@@ -120,6 +120,491 @@
     cursor: pointer;
     border: none;
   }
+
+  .recommendation-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .recommendation-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .recommendation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .recommendation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .recommendation-day {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .recommendation-badge {
+    background: #ff6b6b;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+  }
+  
+  .recommendation-comics {
+    padding: 1rem;
+  }
+  
+  .recommendation-comic {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .recommendation-comic-cover {
+    width: 80px;
+    height: 120px;
+    flex-shrink: 0;
+  }
+  
+  .recommendation-comic-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+  
+  .recommendation-comic-info {
+    flex: 1;
+  }
+  
+  .recommendation-comic-info h3 {
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+    color: #333;
+  }
+  
+  .recommendation-comic-info p {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .recommendation-cards {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  /* Base SVG styles */
+svg {
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+/* Header icons */
+.menu-toggle svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2px;
+}
+
+.search-box button svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2px;
+}
+
+.header-right .btn-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.theme-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2px;
+}
+
+/* Comic meta icons */
+.comic-meta svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  stroke-width: 2px;
+}
+
+/* Reading history icons */
+.reading-meta svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+/* Favorite button icons */
+.btn-favorite svg {
+  width: 20px;
+  height: 20px;
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
+
+.btn-favorite.active svg {
+  fill: #ff4757;
+  stroke: #ff4757;
+}
+
+/* More options button icons */
+.btn-more svg,
+.btn-collection-options svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 2px;
+}
+
+/* Modal icons */
+.btn-close-modal svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2px;
+}
+
+.options-list .option-item svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  stroke-width: 2px;
+}
+
+/* Back to top button icon */
+.back-to-top svg {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2.5px;
+}
+
+/* Subscription note icon */
+.subscription-note svg {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  stroke-width: 2px;
+}
+
+/* Footer social icons */
+.social-links .social-link svg {
+  width: 20px;
+  height: 20px;
+  stroke-width: 2px;
+  transition: stroke 0.3s ease;
+}
+
+.social-links .social-link:hover svg {
+  stroke: #ff4757;
+}
+
+/* App store buttons */
+.app-button svg {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+  stroke-width: 1.5px;
+}
+
+/* Calendar icon in comic meta */
+.comic-meta [stroke-linecap="round"] {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  stroke-width: 2px;
+}
+
+/* Common hover effects */
+button:hover svg,
+a:hover svg {
+  transform: scale(1.1);
+}
+
+/* Icon alignment fixes */
+.btn-icon,
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Icon containers positioning */
+.icon-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .menu-toggle svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .social-links .social-link svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Icon color schemes */
+.icon-primary svg {
+  stroke: #ff4757;
+}
+
+.icon-secondary svg {
+  stroke: #6c757d;
+}
+
+.icon-light svg {
+  stroke: #f8f9fa;
+}
+
+/* Empty State Container */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+  background: #f8f9fa;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+/* Empty State Icon Container */
+.empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border-radius: 50%;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Empty State Icon SVG */
+.empty-icon svg {
+  width: 40px;
+  height: 40px;
+  stroke: #6c757d;
+  stroke-width: 1.5px;
+  opacity: 0.8;
+}
+
+/* Empty State Text */
+.empty-state h3 {
+  font-size: 1.25rem;
+  color: #343a40;
+  margin: 0 0 0.5rem 0;
+}
+
+.empty-state p {
+  color: #6c757d;
+  margin: 0 0 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+/* Different Empty State Variations */
+.empty-state.empty-downloads .empty-icon {
+  background: #e3f2fd;
+}
+
+.empty-state.empty-downloads svg {
+  stroke: #2196f3;
+}
+
+.empty-state.empty-favorites .empty-icon {
+  background: #fff3e0;
+}
+
+.empty-state.empty-favorites svg {
+  stroke: #ff9800;
+}
+
+.empty-state.empty-history .empty-icon {
+  background: #f3e5f5;
+}
+
+.empty-state.empty-history svg {
+  stroke: #9c27b0;
+}
+
+/* Empty State Icon Animations */
+.empty-icon svg {
+  transition: transform 0.3s ease;
+}
+
+.empty-state:hover .empty-icon svg {
+  transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .empty-state {
+    padding: 2rem 1rem;
+  }
+
+  .empty-icon {
+    width: 64px;
+    height: 64px;
+  }
+
+  .empty-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Empty State with Background Pattern */
+.empty-state.with-pattern {
+  background-image: 
+    radial-gradient(circle at 1px 1px, #dee2e6 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
+/* Empty State with Border */
+.empty-state.with-border {
+  border: 2px dashed #dee2e6;
+  background: transparent;
+}
+
+/* Empty State Compact */
+.empty-state.compact {
+  padding: 1.5rem;
+}
+
+.empty-state.compact .empty-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1rem;
+}
+
+.empty-state.compact .empty-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Interactive Empty State */
+.empty-state.interactive {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.empty-state.interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Empty State with Custom Colors */
+.empty-state.primary .empty-icon {
+  background: rgba(var(--primary-rgb), 0.1);
+}
+
+.empty-state.primary .empty-icon svg {
+  stroke: var(--primary);
+}
+
+/* Loading State */
+.empty-state.loading .empty-icon svg {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation for interactive icons */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.interactive-icon:hover svg {
+  animation: pulse 0.3s ease-in-out;
+}
+  
+  /* Section styling */
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .section-title {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .section-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+  }
+
+  .app-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .app-button:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .app-button img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .app-button span {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .app-button small {
+    font-size: 0.75rem;
+    opacity: 0.8;
+  }
   
   .container {
     max-width: 1200px;
@@ -129,6 +614,64 @@
   
   .section {
     padding: var(--spacing-xxl) 0;
+  }
+
+  .genre-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Creates 6 columns */
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  /* Make it responsive */
+  @media (max-width: 1200px) {
+    .genre-grid {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .genre-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 columns on tablet */
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .genre-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
+    }
+  }
+  
+  /* Improve the card appearance */
+  .genre-category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-md);
+    background-color: var(--bg-primary);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+  
+  .genre-category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .genre-category-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .genre-category-icon svg {
+    width: 30px;
+    height: 30px;
   }
   
   /* Utility Classes */
@@ -456,101 +999,105 @@
   
   /* Carousel */
   .carousel {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--border-radius-lg);
-    margin: var(--spacing-lg) 0;
-    box-shadow: var(--shadow-md);
-  }
-  
-  .carousel-inner {
-    display: flex;
-    transition: transform var(--transition-slow);
-  }
-  
-  .carousel-item {
-    flex: 0 0 100%;
-    position: relative;
-    height: 500px;
-  }
-  
-  .carousel-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .carousel-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: var(--spacing-xl);
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-    color: white;
-    text-align: left;
-  }
-  
-  .carousel-title {
-    font-size: 2.5rem;
-    margin-bottom: var(--spacing-sm);
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  .carousel-desc {
-    font-size: 1.2rem;
-    margin-bottom: var(--spacing-md);
-    max-width: 80%;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-  }
-  
-  .carousel-navigation {
-    position: absolute;
-    bottom: var(--spacing-lg);
-    right: var(--spacing-lg);
-    display: flex;
-    gap: var(--spacing-sm);
-  }
-  
-  .carousel-arrow {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: background-color var(--transition-fast);
-  }
-  
-  .carousel-arrow:hover {
-    background-color: var(--primary);
-  }
-  
-  .carousel-indicators {
-    position: absolute;
-    bottom: var(--spacing-md);
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: var(--spacing-sm);
-  }
-  
-  .carousel-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: background-color var(--transition-fast), transform var(--transition-fast);
-  }
-  
-  .carousel-indicator.active {
-    background-color: white;
-    transform: scale(1.3);
-  }
+  position: relative;
+  border-radius: var(--border-radius-lg);
+  margin: var(--spacing-lg) 0;
+  box-shadow: var(--shadow-md);
+  height: 500px; /* Adjust this height as needed */
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.6); /* This creates a semi-transparent dark background */
+  /* Or you can use this alternative for a more modern approach: */
+  /* background: #00000099; */
+  color: white;
+  text-align: left;
+  z-index: 2;
+}
+
+/* Navigation Arrows */
+.carousel-navigation {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10;
+}
+
+.carousel-arrow {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background-color: var(--primary);
+  transform: scale(1.1);
+}
+
+.carousel-arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Indicators */
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicator.active {
+  background-color: white;
+  transform: scale(1.2);
+}
   
   /* Comic Grid */
   .comic-grid {
