@@ -1,3 +1,5 @@
+Folder structure
+
 comic-verse/
 ├── assets/
 │   ├── icons/
