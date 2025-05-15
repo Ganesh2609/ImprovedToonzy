@@ -1,7 +1,5 @@
 # Comic Verse (Improved Toonzy)
 
-![Comic Verse Logo](assets/icons/logo.svg)
-
 ## Overview
 
 Comic Verse is an enhanced, modernized version of Toonzy - a web-based platform for manga and comic enthusiasts. This redesign features a sleek dark theme, improved user interface, and enhanced interactive elements while maintaining all the original functionality.
