@@ -143,24 +143,6 @@ toonzy-2.0/
    - **Option 2**: Right-click and select "Open with" your browser
    - **Option 3**: Use a local server (recommended for full functionality)
 
-### Using a Local Server
-
-For the best experience, serve the files using a local web server:
-
-```bash
-# Using Python 3
-python -m http.server 8000
-
-# Using Node.js (install http-server globally first)
-npm install -g http-server
-http-server -p 8000
-
-# Using Visual Studio Code Live Server extension
-# Right-click on index.html and select "Open with Live Server"
-```
-
-Then open `http://localhost:8000` in your browser.
-
 ## 🖥️ Browser Support
 
 - Chrome/Edge (latest)
@@ -175,30 +157,6 @@ Then open `http://localhost:8000` in your browser.
 - Offline support for saved favorites
 - Fast loading with lazy image loading
 - Smooth animations and transitions
-
-## 🤝 Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 👨‍💻 Developer
-
-**Ganesh** - [GitHub Profile](https://github.com/ganesh2609)
-
-## 🎨 Design Credits
-
-- Modern dark theme inspired by popular streaming platforms
-- Comic reader UI inspired by leading manga reader applications
-- Component design follows Material Design principles
 
 ## 🔮 Future Enhancements
 
@@ -217,14 +175,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Comic PDFs are not included (uses placeholders)
 - User data is stored in browser's localStorage
 - For production use, a backend API would be required
-
-## 🙏 Acknowledgments
-
-- PDF.js library for PDF rendering
-- Feather Icons for the icon set
-- Google Fonts for typography
-- The manga/comic community for inspiration
-
----
-
-Made with ❤️ by Ganesh
