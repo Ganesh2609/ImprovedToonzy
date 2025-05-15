@@ -1,14 +1,14 @@
-# Comic Verse
+# Toonzy 2
 
 A modern web-based platform for manga and comic enthusiasts featuring a sleek dark theme, responsive design, and seamless reading experience.
 
 ## 🖼️ Project Overview
 
-Comic Verse is an enhanced version of Toonzy - a comprehensive comic reading platform. This redesign emphasizes user experience with a modern dark interface, improved navigation, and responsive design that works seamlessly across all devices.
+Toonzy 2 is an enhanced version of Toonzy - a comprehensive comic reading platform. This redesign emphasizes user experience with a modern dark interface, improved navigation, and responsive design that works seamlessly across all devices.
 
 ## 🚀 Live Demo
 
-Experience Comic Verse: [https://ganesh2609.github.io/ImprovedToonzy/](https://ganesh2609.github.io/ImprovedToonzy/)
+Experience Toonzy 2: [https://ganesh2609.github.io/ImprovedToonzy/](https://ganesh2609.github.io/ImprovedToonzy/)
 
 ## ✨ Features
 
