@@ -4,6 +4,10 @@ An enhanced web-based platform for manga and comic enthusiasts, featuring a mode
 
 ![Toonzy Logo](assets/icons/logo.png)
 
+## 🚀 Live Demo
+
+Check out the live demo: [https://ganesh2609.github.io/ImprovedToonzy/](https://ganesh2609.github.io/ImprovedToonzy/)
+
 ## 🌟 Features
 
 - **Modern Dark Theme** - Sleek, eye-friendly dark interface with light theme toggle option
@@ -16,10 +20,6 @@ An enhanced web-based platform for manga and comic enthusiasts, featuring a mode
 - **Library Management** - Save and organize your favorite comics
 - **Progress Tracking** - Keep track of your reading progress across all comics
 - **Touch Gestures** - Swipe navigation and double-tap zoom for mobile devices
-
-## 🚀 Live Demo
-
-Check out the live demo: [https://ganesh2609.github.io/ImprovedToonzy/](https://ganesh2609.github.io/ImprovedToonzy/)
 
 ## 🛠️ Technologies Used
 
